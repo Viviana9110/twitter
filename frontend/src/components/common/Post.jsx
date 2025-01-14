@@ -125,21 +125,21 @@ const Post = ({ post }) => {
 
 	return (
 		<>
-			<div className='flex gap-2 items-start p-4 border-b border-white'>
+			<div className='flex gap-2 items-start p-4 border-b border-white text-white'>
 				<div className='avatar'>
 					<Link to={`/profile/${postOwner.username}`} className='w-8 rounded-full overflow-hidden'>
 						<img src={postOwner.profileImg || "/avatar-placeholder.png"} />
 					</Link>
 				</div>
 				<div className='flex flex-col flex-1'>
-					<div className='flex gap-2 items-center'>
+					<div className='flex gap-2 items-center text-white'>
 						<Link to={`/profile/${postOwner.username}`} className='font-bold'>
 							{postOwner.fullName}
 						</Link>
 						<span className='text-white flex gap-1 text-sm'>
 							<Link to={`/profile/${postOwner.username}`}>@{postOwner.username}</Link>
-							<span>·</span>
-							<span>{formattedDate}</span>
+							<span className="text-white">·</span>
+							<span className="text-white">{formattedDate}</span>
 						</span>
 						{isMyPost && (
 							<span className='flex justify-end flex-1'>
@@ -152,19 +152,19 @@ const Post = ({ post }) => {
 						)}
 					</div>
 					<div className='flex flex-col gap-3 overflow-hidden'>
-						<span>{post.text}</span>
+						<span className="text-white">{post.text}</span>
 						{post.img && (
 							<img
 								src={post.img}
-								className='h-80 object-contain rounded-lg border border-white'
+								className='h-80 object-contain rounded-lg border text-white border-white'
 								alt=''
 							/>
 						)}
 					</div>
-					<div className='flex justify-between mt-3'>
-						<div className='flex gap-4 items-center w-2/3 justify-between'>
+					<div className='flex justify-between mt-3 text-white'>
+						<div className='flex gap-4 items-center w-2/3 justify-between text-white'>
 							<div
-								className='flex gap-1 items-center cursor-pointer group'
+								className='flex gap-1 items-center cursor-pointer group text-white'
 								onClick={() => document.getElementById("comments_modal" + post._id).showModal()}
 							>
 								<FaRegComment className='w-4 h-4  text-white group-hover:text-sky-400' />
@@ -178,7 +178,7 @@ const Post = ({ post }) => {
 									<h3 className='font-bold text-lg mb-4'>COMMENTS</h3>
 									<div className='flex flex-col gap-3 max-h-60 overflow-auto'>
 										{post.comments.length === 0 && (
-											<p className='text-sm text-white'>
+											<p className='text-sm'>
 												No comments yet 🤔 Be the first one 😉
 											</p>
 										)}
@@ -193,12 +193,12 @@ const Post = ({ post }) => {
 												</div>
 												<div className='flex flex-col'>
 													<div className='flex items-center gap-1'>
-														<span className='font-bold'>{comment.user.fullName}</span>
+														<span className='font-bold text-white'>{comment.user.fullName}</span>
 														<span className='text-white text-sm'>
 															@{comment.user.username}
 														</span>
 													</div>
-													<div className='text-sm'>{comment.text}</div>
+													<div className='text-sm text-white'>{comment.text}</div>
 												</div>
 											</div>
 										))}
@@ -219,7 +219,7 @@ const Post = ({ post }) => {
 									</form>
 								</div>
 								<form method='dialog' className='modal-backdrop'>
-									<button className='outline-none'>close</button>
+									<button className='bg-red rounded-full outline-none'>close</button>
 								</form>
 							</dialog>
 							<div className='flex gap-1 items-center group cursor-pointer'>
