@@ -49,29 +49,29 @@ const NotificationPage = () => {
 
 	return (
 		<>
-			<div className='flex-[4_4_0] border-l border-r border-gray-700 min-h-screen'>
+			<div className='flex-[4_4_0] border-l border-r border-white min-h-screen'>
 				<div className='flex justify-between items-center p-4 border-b border-white'>
 					<p className='font-bold text-white'>Notifications</p>
 					<div className='dropdown '>
 						<div tabIndex={0} role='button' className='m-1'>
-							<IoSettingsOutline className='w-4' />
+							<IoSettingsOutline className='w-4 text-white' />
 						</div>
 						<ul
 							tabIndex={0}
-							className='dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52'
+							className='dropdown-content z-[1] menu text-white p-2 shadow bg-base-100 rounded-box w-52'
 						>
-							<li>
+							<li className="text-white">
 								<a onClick={deleteNotifications}>Delete all notifications</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				{isLoading && (
-					<div className='flex justify-center h-full items-center'>
+					<div className='flex justify-center h-full items-center text-white'>
 						<LoadingSpinner size='lg' />
 					</div>
 				)}
-				{notifications?.length === 0 && <div className='text-center p-4 font-bold'>No notifications 🤔</div>}
+				{notifications?.length === 0 && <div className='text-center text-white p-4 font-bold'>No notifications 🤔</div>}
 				{notifications?.map((notification) => (
 					<div className='border-b border-white' key={notification._id}>
 						<div className='flex gap-2 p-4'>
@@ -84,7 +84,7 @@ const NotificationPage = () => {
 									</div>
 								</div>
 								<div className='flex gap-1'>
-									<span className='font-bold'>@{notification.from.username}</span>{" "}
+									<span className='font-bold text-white'>@{notification.from.username}</span>{" "}
 									{notification.type === "follow" ? "followed you" : "liked your post"}
 								</div>
 							</Link>
